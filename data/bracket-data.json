@@ -1,133 +1,43 @@
 {
-  "updated_at": "2026-07-06T10:37:51.485Z",
+  "updated_at": "2026-07-06T11:10:29.753Z",
   "tournament": "FIFA World Cup 2026",
-  "rounds": {
-    "round_16": [
-      {
-        "id": "537375",
-        "date": "Jul 4",
-        "status": "FINISHED",
-        "home": {
-          "name": "Paraguay",
-          "code": "PAR",
-          "score": 0
+  "quadrants": [
+    {
+      "r16": [
+        {
+          "id": "537376",
+          "kickoff": "2026-07-04T17:00:00Z",
+          "status": "FINISHED",
+          "home": {
+            "name": "Canada",
+            "code": "CAN",
+            "score": 0
+          },
+          "away": {
+            "name": "Morocco",
+            "code": "MAR",
+            "score": 3
+          }
         },
-        "away": {
-          "name": "France",
-          "code": "FRA",
-          "score": 1
+        {
+          "id": "537375",
+          "kickoff": "2026-07-04T21:00:00Z",
+          "status": "FINISHED",
+          "home": {
+            "name": "Paraguay",
+            "code": "PAR",
+            "score": 0
+          },
+          "away": {
+            "name": "France",
+            "code": "FRA",
+            "score": 1
+          }
         }
-      },
-      {
-        "id": "537376",
-        "date": "Jul 4",
-        "status": "FINISHED",
-        "home": {
-          "name": "Canada",
-          "code": "CAN",
-          "score": 0
-        },
-        "away": {
-          "name": "Morocco",
-          "code": "MAR",
-          "score": 3
-        }
-      },
-      {
-        "id": "537377",
-        "date": "Jul 5",
-        "status": "FINISHED",
-        "home": {
-          "name": "Brazil",
-          "code": "BRA",
-          "score": 1
-        },
-        "away": {
-          "name": "Norway",
-          "code": "NOR",
-          "score": 2
-        }
-      },
-      {
-        "id": "537378",
-        "date": "Jul 6",
-        "status": "FINISHED",
-        "home": {
-          "name": "Mexico",
-          "code": "MEX",
-          "score": 2
-        },
-        "away": {
-          "name": "England",
-          "code": "ENG",
-          "score": 3
-        }
-      },
-      {
-        "id": "537379",
-        "date": "Jul 6",
-        "status": "TIMED",
-        "home": {
-          "name": "Portugal",
-          "code": "POR",
-          "score": null
-        },
-        "away": {
-          "name": "Spain",
-          "code": "ESP",
-          "score": null
-        }
-      },
-      {
-        "id": "537380",
-        "date": "Jul 7",
-        "status": "TIMED",
-        "home": {
-          "name": "United States",
-          "code": "USA",
-          "score": null
-        },
-        "away": {
-          "name": "Belgium",
-          "code": "BEL",
-          "score": null
-        }
-      },
-      {
-        "id": "537381",
-        "date": "Jul 7",
-        "status": "TIMED",
-        "home": {
-          "name": "Argentina",
-          "code": "ARG",
-          "score": null
-        },
-        "away": {
-          "name": "Egypt",
-          "code": "EGY",
-          "score": null
-        }
-      },
-      {
-        "id": "537382",
-        "date": "Jul 7",
-        "status": "TIMED",
-        "home": {
-          "name": "Switzerland",
-          "code": "SUI",
-          "score": null
-        },
-        "away": {
-          "name": "Colombia",
-          "code": "COL",
-          "score": null
-        }
-      }
-    ],
-    "quarter_finals": [
-      {
+      ],
+      "qf": {
         "id": "537383",
-        "date": "Jul 9",
+        "kickoff": "2026-07-09T20:00:00Z",
         "status": "TIMED",
         "home": {
           "name": "France",
@@ -139,11 +49,45 @@
           "code": "MAR",
           "score": null
         }
-      },
-      {
-        "id": "537384",
-        "date": "Jul 10",
-        "status": "TIMED",
+      }
+    },
+    {
+      "r16": [
+        {
+          "id": "537379",
+          "kickoff": "2026-07-06T19:00:00Z",
+          "status": "TIMED",
+          "home": {
+            "name": "Portugal",
+            "code": "POR",
+            "score": null
+          },
+          "away": {
+            "name": "Spain",
+            "code": "ESP",
+            "score": null
+          }
+        },
+        {
+          "id": "537380",
+          "kickoff": "2026-07-07T00:00:00Z",
+          "status": "TIMED",
+          "home": {
+            "name": "United States",
+            "code": "USA",
+            "score": null
+          },
+          "away": {
+            "name": "Belgium",
+            "code": "BEL",
+            "score": null
+          }
+        }
+      ],
+      "qf": {
+        "id": null,
+        "kickoff": null,
+        "status": "SCHEDULED",
         "home": {
           "name": "TBD",
           "code": null,
@@ -154,10 +98,44 @@
           "code": null,
           "score": null
         }
-      },
-      {
+      }
+    },
+    {
+      "r16": [
+        {
+          "id": "537377",
+          "kickoff": "2026-07-05T20:00:00Z",
+          "status": "FINISHED",
+          "home": {
+            "name": "Brazil",
+            "code": "BRA",
+            "score": 1
+          },
+          "away": {
+            "name": "Norway",
+            "code": "NOR",
+            "score": 2
+          }
+        },
+        {
+          "id": "537378",
+          "kickoff": "2026-07-06T01:00:00Z",
+          "status": "FINISHED",
+          "home": {
+            "name": "Mexico",
+            "code": "MEX",
+            "score": 2
+          },
+          "away": {
+            "name": "England",
+            "code": "ENG",
+            "score": 3
+          }
+        }
+      ],
+      "qf": {
         "id": "537385",
-        "date": "Jul 11",
+        "kickoff": "2026-07-11T21:00:00Z",
         "status": "TIMED",
         "home": {
           "name": "Norway",
@@ -169,88 +147,118 @@
           "code": "ENG",
           "score": null
         }
+      }
+    },
+    {
+      "r16": [
+        {
+          "id": "537381",
+          "kickoff": "2026-07-07T16:00:00Z",
+          "status": "TIMED",
+          "home": {
+            "name": "Argentina",
+            "code": "ARG",
+            "score": null
+          },
+          "away": {
+            "name": "Egypt",
+            "code": "EGY",
+            "score": null
+          }
+        },
+        {
+          "id": "537382",
+          "kickoff": "2026-07-07T20:00:00Z",
+          "status": "TIMED",
+          "home": {
+            "name": "Switzerland",
+            "code": "SUI",
+            "score": null
+          },
+          "away": {
+            "name": "Colombia",
+            "code": "COL",
+            "score": null
+          }
+        }
+      ],
+      "qf": {
+        "id": null,
+        "kickoff": null,
+        "status": "SCHEDULED",
+        "home": {
+          "name": "TBD",
+          "code": null,
+          "score": null
+        },
+        "away": {
+          "name": "TBD",
+          "code": null,
+          "score": null
+        }
+      }
+    }
+  ],
+  "semis": [
+    {
+      "id": null,
+      "kickoff": null,
+      "status": "SCHEDULED",
+      "home": {
+        "name": "TBD",
+        "code": null,
+        "score": null
       },
-      {
-        "id": "537386",
-        "date": "Jul 12",
-        "status": "TIMED",
-        "home": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        },
-        "away": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        }
+      "away": {
+        "name": "TBD",
+        "code": null,
+        "score": null
       }
-    ],
-    "semi_finals": [
-      {
-        "id": "537387",
-        "date": "Jul 14",
-        "status": "TIMED",
-        "home": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        },
-        "away": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        }
+    },
+    {
+      "id": null,
+      "kickoff": null,
+      "status": "SCHEDULED",
+      "home": {
+        "name": "TBD",
+        "code": null,
+        "score": null
       },
-      {
-        "id": "537388",
-        "date": "Jul 15",
-        "status": "TIMED",
-        "home": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        },
-        "away": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        }
+      "away": {
+        "name": "TBD",
+        "code": null,
+        "score": null
       }
-    ],
-    "third_place": [
-      {
-        "id": "537389",
-        "date": "Jul 18",
-        "status": "TIMED",
-        "home": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        },
-        "away": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        }
-      }
-    ],
-    "final": [
-      {
-        "id": "537390",
-        "date": "Jul 19",
-        "status": "TIMED",
-        "home": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        },
-        "away": {
-          "name": "TBD",
-          "code": null,
-          "score": null
-        }
-      }
-    ]
+    }
+  ],
+  "final": {
+    "id": null,
+    "kickoff": null,
+    "status": "SCHEDULED",
+    "home": {
+      "name": "TBD",
+      "code": null,
+      "score": null
+    },
+    "away": {
+      "name": "TBD",
+      "code": null,
+      "score": null
+    }
+  },
+  "third_place": {
+    "id": null,
+    "kickoff": null,
+    "status": "SCHEDULED",
+    "home": {
+      "name": "TBD",
+      "code": null,
+      "score": null
+    },
+    "away": {
+      "name": "TBD",
+      "code": null,
+      "score": null
+    }
   }
 }

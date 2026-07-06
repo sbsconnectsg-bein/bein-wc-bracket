@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>beIN SPORTS — FIFA World Cup 2026 Bracket</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Yodeck fallback: forces a hard reload every 15 min in case the browser tab is long-lived -->
+<meta http-equiv="refresh" content="900">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stage">
+
+    <div class="header">
+      <div class="brand">
+        <img src="assets/bein-logo.webp" alt="beIN SPORTS">
+        <div class="divider"></div>
+        <div class="title-block">
+          <div class="eyebrow">Knockout Stage</div>
+          <h1>FIFA World Cup 2026 Bracket</h1>
+        </div>
+      </div>
+      <div class="status">
+        <div class="clock" id="clock">--:--</div>
+        <div class="updated" id="updated-at"><span class="dot"></span>Loading…</div>
+      </div>
+    </div>
+
+    <div class="bracket-wrap">
+      <div class="round-col">
+        <div class="round-label">Round of 16</div>
+        <div id="r16-col"></div>
+      </div>
+      <div class="round-col">
+        <div class="round-label">Quarter-finals</div>
+        <div id="qf-col"></div>
+      </div>
+      <div class="round-col">
+        <div class="round-label">Semi-finals</div>
+        <div id="sf-col"></div>
+      </div>
+      <div class="round-col final-col">
+        <div class="round-label">Final</div>
+        <div id="final-col"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>beIN SPORTS &middot; FIFA World Cup 2026 &middot; Canada · Mexico · USA</div>
+      <div>Auto-refreshing bracket</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

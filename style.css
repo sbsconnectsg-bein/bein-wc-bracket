@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+
+:root{
+  --purple: #5A328B;
+  --purple-dark: #23133B;
+  --ink: #140D22;
+  --white: #FFFFFF;
+  --gold: #F2B705;
+  --muted: #B6A6D4;
+  --line: rgba(255,255,255,0.14);
+  --card: rgba(255,255,255,0.045);
+  --card-live: rgba(242,183,5,0.10);
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+
+html,body{
+  width:100%; height:100%;
+  background:
+    radial-gradient(120% 140% at 100% 0%, var(--purple) 0%, transparent 55%),
+    radial-gradient(120% 140% at 0% 100%, var(--purple-dark) 0%, transparent 60%),
+    var(--ink);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  overflow: hidden;
+}
+
+.stage{
+  width:100vw; height:100vh;
+  display:flex;
+  flex-direction:column;
+  padding: 1.6vh 2.2vw;
+}
+
+/* ---------- Header ---------- */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom: 1.4vh;
+  border-bottom: 1px solid var(--line);
+  flex-shrink:0;
+}
+.header .brand{ display:flex; align-items:center; gap: 1.2vw; }
+.header .brand img{ height: 4.6vh; width:auto; display:block; }
+.header .divider{ width:1px; height:3.4vh; background: var(--line); }
+.header .title-block .eyebrow{
+  font-family:'Barlow Condensed'; font-weight:700; letter-spacing:0.14em;
+  font-size: 1.1vh; text-transform:uppercase; color: var(--gold);
+}
+.header .title-block h1{
+  font-family:'Barlow Condensed'; font-weight:800; letter-spacing:0.01em;
+  font-size: 3vh; line-height:1; text-transform:uppercase;
+}
+.header .status{
+  display:flex; flex-direction:column; align-items:flex-end; gap:0.4vh;
+  font-family:'Barlow Condensed'; color: var(--muted);
+}
+.header .status .clock{ font-size:2.1vh; font-weight:700; color:var(--white); }
+.header .status .updated{ font-size:1.15vh; letter-spacing:0.04em; }
+.header .status .updated .dot{
+  display:inline-block; width:0.8vh; height:0.8vh; border-radius:50%;
+  background: var(--gold); margin-right: 0.6vh; box-shadow: 0 0 6px var(--gold);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%,100%{ opacity:1; }
+  50%{ opacity:0.35; }
+}
+
+/* ---------- Bracket ---------- */
+.bracket-wrap{ flex:1; display:flex; align-items:stretch; min-height:0; padding-top: 1.6vh; }
+
+.round-col{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  padding: 0 0.9vw;
+  position:relative;
+}
+.round-col .round-label{
+  font-family:'Barlow Condensed'; font-weight:700; text-transform:uppercase;
+  letter-spacing:0.1em; font-size:1.25vh; color:var(--muted);
+  text-align:center; margin-bottom: 1vh;
+}
+
+.match{
+  background: var(--card);
+  border:1px solid var(--line);
+  border-radius: 6px;
+  overflow:hidden;
+  position:relative;
+}
+.match.live{ background: var(--card-live); border-color: rgba(242,183,5,0.5); }
+
+.match .row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0.9vh 0.9vw;
+  font-family:'Barlow Condensed'; font-weight:600; font-size: 1.55vh;
+}
+.match .row + .row{ border-top:1px solid var(--line); }
+.match .row.winner{ color: var(--gold); font-weight:800; }
+.match .row.eliminated{ color: var(--muted); }
+.match .team{ display:flex; align-items:center; gap:0.6vw; overflow:hidden; }
+.match .code{
+  font-weight:800; font-size:1.15vh; letter-spacing:0.06em;
+  color: var(--muted); width:2.6em; flex-shrink:0;
+}
+.match .name{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.match .score{ font-family:'Barlow Condensed'; font-weight:800; font-size:1.7vh; }
+
+.match .meta{
+  position:absolute; top:-1.6vh; left:50%; transform:translateX(-50%);
+  font-size:1vh; color:var(--muted); font-family:'Barlow Condensed';
+  letter-spacing:0.04em; white-space:nowrap;
+}
+.match .live-tag{
+  position:absolute; top:0.5vh; right:0.6vw;
+  font-size:0.95vh; font-weight:800; color:var(--gold);
+  letter-spacing:0.08em; display:flex; align-items:center; gap:0.3vw;
+}
+.match .live-tag .dot{
+  width:0.7vh; height:0.7vh; border-radius:50%; background:var(--gold);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+/* connector lines between rounds */
+.round-col:not(.final-col)::after{
+  content:''; position:absolute; right:0; top:12%; bottom:12%;
+  width:1px; background: var(--line);
+}
+
+/* ---------- Final / champion column ---------- */
+.final-col{ flex:1.15; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:2vh; }
+.trophy-card{
+  width:100%;
+  border:1.5px solid var(--gold);
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(242,183,5,0.14), rgba(242,183,5,0.03));
+  padding: 1.6vh 1vw;
+  text-align:center;
+}
+.trophy-card .label{
+  font-family:'Barlow Condensed'; font-weight:700; letter-spacing:0.16em;
+  text-transform:uppercase; font-size:1.1vh; color:var(--gold); margin-bottom:1vh;
+}
+.trophy-card .final-teams{ display:flex; flex-direction:column; gap:0.6vh; }
+.trophy-card .final-teams .row{
+  justify-content:center; gap:0.8vw; font-size:2vh;
+}
+.trophy-card .final-teams .row .code{ width:auto; }
+.trophy-card .champion{
+  margin-top:1.2vh; font-family:'Barlow Condensed'; font-weight:900;
+  font-size:2.6vh; color:var(--gold); text-transform:uppercase; letter-spacing:0.04em;
+}
+.third-place-note{
+  font-family:'Barlow Condensed'; font-size:1.15vh; color:var(--muted);
+  text-align:center; letter-spacing:0.03em;
+}
+.third-place-note b{ color:var(--white); }
+
+/* ---------- Footer ---------- */
+.footer{
+  flex-shrink:0; display:flex; justify-content:space-between; align-items:center;
+  padding-top: 1vh; margin-top:1vh; border-top:1px solid var(--line);
+  font-family:'Barlow Condensed'; font-size:1.1vh; color:var(--muted); letter-spacing:0.04em;
+}
+
+/* =====================================================
+   PORTRAIT LAYOUT
+   Rounds stack top-to-bottom instead of side-by-side.
+   Sizing switches from vh-based to vw-based since width
+   is the constrained dimension on a portrait screen.
+   ===================================================== */
+@media (orientation: portrait){
+
+  body{ overflow-y:auto; } /* safety net across odd resolutions; no-op if content fits */
+
+  .stage{ padding: 2.2vw 4vw; height:auto; min-height:100vh; }
+
+  .header{ flex-wrap:wrap; row-gap:1.6vw; padding-bottom: 2vw; }
+  .header .brand img{ height: 5.4vw; }
+  .header .divider{ height: 4.2vw; }
+  .header .title-block .eyebrow{ font-size: 2.1vw; }
+  .header .title-block h1{ font-size: 4.8vw; }
+  .header .status .clock{ font-size: 3.6vw; }
+  .header .status .updated{ font-size: 1.9vw; }
+  .header .status .updated .dot{ width:1.3vw; height:1.3vw; margin-right:1vw; }
+
+  .bracket-wrap{ flex-direction:column; padding-top: 2.4vw; }
+
+  .round-col{
+    flex:none; width:100%; padding:0; margin-bottom: 3.4vw;
+    justify-content:flex-start;
+  }
+  .round-col::after{ display:none; } /* drop vertical connector lines */
+  .round-col .round-label{
+    text-align:left; font-size:2.8vw; margin-bottom: 1.8vw;
+    padding-left: 1.6vw; border-left: 3px solid var(--gold);
+  }
+
+  /* two matches per row for the larger rounds, keeps things compact */
+  #r16-col, #qf-col, #sf-col{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.2vw;
+  }
+
+  .match .row{ font-size: 3.3vw; padding: 2.3vw 2.6vw; }
+  .match .code{ font-size: 2.3vw; width:2.3em; }
+  .match .score{ font-size: 3.7vw; }
+  .match .meta{ font-size: 2vw; top: -3.6vw; }
+  .match .live-tag{ font-size: 1.9vw; top: 1vw; right: 1.6vw; gap: 0.8vw; }
+  .match .live-tag .dot{ width: 1.6vw; height: 1.6vw; }
+
+  .final-col{ width:100%; gap: 3.2vw; }
+  .trophy-card{ padding: 3.6vw 3.2vw; }
+  .trophy-card .label{ font-size: 2.3vw; margin-bottom: 2.2vw; }
+  .trophy-card .final-teams .row{ font-size: 4.6vw; gap: 2.2vw; }
+  .trophy-card .champion{ font-size: 5.8vw; margin-top: 2.6vw; }
+  .third-place-note{ font-size: 2.4vw; }
+
+  .footer{ font-size: 2.3vw; padding-top: 2.2vw; margin-top: 2.2vw; flex-wrap:wrap; gap: 1.2vw; }
+}

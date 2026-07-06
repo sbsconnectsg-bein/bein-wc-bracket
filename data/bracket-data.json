@@ -1,0 +1,32 @@
+{
+  "updated_at": "2026-07-06T08:00:00Z",
+  "tournament": "FIFA World Cup 2026",
+  "rounds": {
+    "round_16": [
+      { "id": "r16-1", "date": "Jul 7", "status": "NS", "home": { "name": "Argentina", "code": "ARG", "score": null }, "away": { "name": "Cabo Verde", "code": "CPV", "score": null } },
+      { "id": "r16-2", "date": "Jul 7", "status": "FT", "home": { "name": "Colombia", "code": "COL", "score": 2 }, "away": { "name": "Ghana", "code": "GHA", "score": 1 } },
+      { "id": "r16-3", "date": "Jul 6", "status": "FT", "home": { "name": "Australia", "code": "AUS", "score": 1 }, "away": { "name": "Egypt", "code": "EGY", "score": 0 } },
+      { "id": "r16-4", "date": "Jul 7", "status": "NS", "home": { "name": "Paraguay", "code": "PAR", "score": null }, "away": { "name": "France", "code": "FRA", "score": null } },
+      { "id": "r16-5", "date": "Jul 6", "status": "FT", "home": { "name": "Canada", "code": "CAN", "score": 1 }, "away": { "name": "Morocco", "code": "MAR", "score": 2 } },
+      { "id": "r16-6", "date": "Jul 5", "status": "FT", "home": { "name": "Brazil", "code": "BRA", "score": 1 }, "away": { "name": "Norway", "code": "NOR", "score": 2 } },
+      { "id": "r16-7", "date": "Jul 5", "status": "FT", "home": { "name": "Mexico", "code": "MEX", "score": 1 }, "away": { "name": "England", "code": "ENG", "score": 1 }, "note": "England win on penalties" },
+      { "id": "r16-8", "date": "Jul 4", "status": "FT", "home": { "name": "Switzerland", "code": "SUI", "score": 1 }, "away": { "name": "Algeria", "code": "ALG", "score": 0 } }
+    ],
+    "quarter_finals": [
+      { "id": "qf-1", "date": "Jul 10", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } },
+      { "id": "qf-2", "date": "Jul 11", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } },
+      { "id": "qf-3", "date": "Jul 11", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } },
+      { "id": "qf-4", "date": "Jul 12", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } }
+    ],
+    "semi_finals": [
+      { "id": "sf-1", "date": "Jul 14", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } },
+      { "id": "sf-2", "date": "Jul 15", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } }
+    ],
+    "third_place": [
+      { "id": "3rd-1", "date": "Jul 18", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } }
+    ],
+    "final": [
+      { "id": "final-1", "date": "Jul 19", "status": "NS", "home": { "name": "TBD", "code": null, "score": null }, "away": { "name": "TBD", "code": null, "score": null } }
+    ]
+  }
+}

@@ -3,8 +3,8 @@ const DATA_URL = 'data/bracket-data.json';
 // Keep this modest — GitHub Pages + Actions won't update more than every ~15 min anyway.
 const POLL_MS = 5 * 60 * 1000;
 
-const LIVE_STATUSES = new Set(['1H', '2H', 'ET', 'HT', 'BT', 'P', 'LIVE']);
-const FINISHED_STATUSES = new Set(['FT', 'AET', 'PEN']);
+const LIVE_STATUSES = new Set(['IN_PLAY', 'PAUSED', 'LIVE']);
+const FINISHED_STATUSES = new Set(['FINISHED']);
 
 function teamRow(team, opponent, status) {
   const hasScore = team.score !== null && team.score !== undefined;

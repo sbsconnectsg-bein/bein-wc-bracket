@@ -1,76 +1,71 @@
 /**
- * Pulls FIFA World Cup 2026 fixtures from API-Football and writes
+ * Pulls FIFA World Cup 2026 fixtures from football-data.org and writes
  * data/bracket-data.json in the shape the bracket page expects.
  *
- * Requires an env var API_FOOTBALL_KEY (set as a GitHub Actions secret).
+ * Requires an env var API_FOOTBALL_KEY (set as a GitHub Actions secret) —
+ * the name is kept from an earlier version of this script, but the value
+ * should be your football-data.org token (see README step 1).
  *
- * League ID 1 = FIFA World Cup, Season 2026, per API-Football's dashboard.
+ * football-data.org's free tier explicitly includes the World Cup
+ * (competition code "WC"), unlike some other providers' free tiers which
+ * only cover older seasons. Rate limit: 10 requests/minute.
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const API_KEY = process.env.API_FOOTBALL_KEY;
-const LEAGUE_ID = 1;
-const SEASON = 2026;
+const COMPETITION_CODE = 'WC'; // football-data.org's code for the World Cup
+const BASE_URL = 'https://api.football-data.org/v4';
 
-// Sign up directly at https://dashboard.api-football.com/register (free).
-// This uses api-sports.io's own auth, not RapidAPI — their RapidAPI listing
-// is no longer live, so this is the current supported path.
-const BASE_URL = 'https://v3.football.api-sports.io';
-
-// Maps API-Football's round names to our bracket buckets.
-// If API-Football phrases a round slightly differently for this tournament,
-// adjust the matching strings here.
-const ROUND_MAP = [
-  { key: 'round_16', match: (r) => /round of 16/i.test(r) },
-  { key: 'quarter_finals', match: (r) => /quarter/i.test(r) },
-  { key: 'semi_finals', match: (r) => /semi/i.test(r) },
-  { key: 'third_place', match: (r) => /3rd place|third place/i.test(r) },
-  { key: 'final', match: (r) => /^final$/i.test(r.trim()) },
+// Maps football-data.org's "stage" field to our bracket buckets.
+// Written as loose regex matches since different tournaments on this API
+// have used slightly different stage naming (e.g. LAST_16 vs ROUND_OF_16).
+const STAGE_MAP = [
+  { key: 'round_16', match: (s) => /LAST_16|ROUND_OF_16/i.test(s) },
+  { key: 'quarter_finals', match: (s) => /QUARTER/i.test(s) },
+  { key: 'semi_finals', match: (s) => /SEMI/i.test(s) },
+  { key: 'third_place', match: (s) => /THIRD/i.test(s) },
+  { key: 'final', match: (s) => /^FINAL$/i.test(s.trim()) },
 ];
 
-async function fetchFixtures() {
-  const url = `${BASE_URL}/fixtures?league=${LEAGUE_ID}&season=${SEASON}`;
+async function fetchMatches() {
+  const url = `${BASE_URL}/competitions/${COMPETITION_CODE}/matches`;
   const res = await fetch(url, {
-    headers: { 'x-apisports-key': API_KEY },
+    headers: { 'X-Auth-Token': API_KEY },
   });
   if (!res.ok) {
-    throw new Error(`API-Football request failed: HTTP ${res.status}`);
+    const body = await res.text().catch(() => '');
+    throw new Error(`football-data.org request failed: HTTP ${res.status} ${body}`);
   }
   const json = await res.json();
-  if (json.errors && Object.keys(json.errors).length) {
-    throw new Error(`API-Football error: ${JSON.stringify(json.errors)}`);
-  }
-  return json.response || [];
+  return json.matches || [];
 }
 
-function mapFixture(fixture) {
-  const home = fixture.teams.home;
-  const away = fixture.teams.away;
+function mapMatch(match) {
   return {
-    id: String(fixture.fixture.id),
-    date: new Date(fixture.fixture.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-    status: fixture.fixture.status.short, // NS, 1H, HT, 2H, FT, AET, PEN, etc.
+    id: String(match.id),
+    date: new Date(match.utcDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+    status: match.status, // SCHEDULED, TIMED, IN_PLAY, PAUSED, FINISHED, POSTPONED, SUSPENDED, CANCELLED
     home: {
-      name: home.name,
-      code: (home.name || '').slice(0, 3).toUpperCase(),
-      score: fixture.goals.home,
+      name: match.homeTeam.name || 'TBD',
+      code: match.homeTeam.tla || (match.homeTeam.name || '').slice(0, 3).toUpperCase() || null,
+      score: match.score && match.score.fullTime ? match.score.fullTime.home : null,
     },
     away: {
-      name: away.name,
-      code: (away.name || '').slice(0, 3).toUpperCase(),
-      score: fixture.goals.away,
+      name: match.awayTeam.name || 'TBD',
+      code: match.awayTeam.tla || (match.awayTeam.name || '').slice(0, 3).toUpperCase() || null,
+      score: match.score && match.score.fullTime ? match.score.fullTime.away : null,
     },
   };
 }
 
 async function main() {
   if (!API_KEY) {
-    throw new Error('Missing API_FOOTBALL_KEY environment variable.');
+    throw new Error('Missing API_FOOTBALL_KEY environment variable (should hold your football-data.org token).');
   }
 
-  const fixtures = await fetchFixtures();
+  const matches = await fetchMatches();
 
   const rounds = {
     round_16: [],
@@ -80,11 +75,11 @@ async function main() {
     final: [],
   };
 
-  for (const fixture of fixtures) {
-    const roundName = fixture.league.round || '';
-    const bucket = ROUND_MAP.find((r) => r.match(roundName));
+  for (const match of matches) {
+    const stage = match.stage || '';
+    const bucket = STAGE_MAP.find((r) => r.match(stage));
     if (bucket) {
-      rounds[bucket.key].push(mapFixture(fixture));
+      rounds[bucket.key].push(mapMatch(match));
     }
   }
 

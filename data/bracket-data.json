@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T12:17:34.935Z",
+  "updated_at": "2026-07-07T17:41:07.587Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -164,16 +164,16 @@
           "id": "537381",
           "matchNumber": 95,
           "kickoff": "2026-07-07T16:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "home": {
             "name": "Argentina",
             "code": "ARG",
-            "score": null
+            "score": 0
           },
           "away": {
             "name": "Egypt",
             "code": "EGY",
-            "score": null
+            "score": 2
           }
         },
         {

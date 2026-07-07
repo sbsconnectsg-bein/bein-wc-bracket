@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T17:41:07.587Z",
+  "updated_at": "2026-07-07T18:18:06.258Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -164,11 +164,11 @@
           "id": "537381",
           "matchNumber": 95,
           "kickoff": "2026-07-07T16:00:00Z",
-          "status": "IN_PLAY",
+          "status": "FINISHED",
           "home": {
             "name": "Argentina",
             "code": "ARG",
-            "score": 0
+            "score": 3
           },
           "away": {
             "name": "Egypt",
@@ -199,8 +199,8 @@
         "kickoff": "2026-07-12T01:00:00Z",
         "status": "SCHEDULED",
         "home": {
-          "name": "W95",
-          "code": null,
+          "name": "Argentina",
+          "code": "ARG",
           "score": null
         },
         "away": {
@@ -279,6 +279,12 @@
   },
   "top_scorers": [
     {
+      "name": "Messi",
+      "team": "Argentina",
+      "teamCode": "ARG",
+      "goals": 8
+    },
+    {
       "name": "Mbappé",
       "team": "France",
       "teamCode": "FRA",
@@ -288,12 +294,6 @@
       "name": "Haaland",
       "team": "Norway",
       "teamCode": "NOR",
-      "goals": 7
-    },
-    {
-      "name": "Messi",
-      "team": "Argentina",
-      "teamCode": "ARG",
       "goals": 7
     },
     {

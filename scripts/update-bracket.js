@@ -208,7 +208,7 @@ async function main() {
     `L${sf1.matchNumber}`, `L${sf2.matchNumber}`
   );
 
-  const topScorers = await fetchTopScorers(3);
+  const topScorers = await fetchTopScorers(4);
 
   const output = {
     updated_at: new Date().toISOString(),

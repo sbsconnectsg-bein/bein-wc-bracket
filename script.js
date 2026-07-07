@@ -33,10 +33,6 @@ function teamRow(team, opponent, status) {
     </div>`;
 }
 
-// roundLabel: e.g. "Quarter-final", "Semi-final 1" — shown permanently as
-// the card's header (defaults to "Round of 16" when not given), EXCEPT
-// while a match is actually live, when "LIVE" temporarily takes its place.
-// kind: 'qf' | 'sf' — accent color per stage; defaults to a neutral 'r16'.
 function matchCard(match, { roundLabel, kind } = {}) {
   const tag = statusTag(match.status);
   const stageLabel = roundLabel || 'Round of 16';
@@ -81,10 +77,6 @@ function connector() {
     </div>`;
 }
 
-// Same shape as connector(), but flipped vertically — used when the two
-// feeder matches render BELOW the box they feed into instead of above it
-// (as with QF98/QF100, whose R16 feeders are shown after them for layout
-// reasons), so the merge line still correctly points into the result.
 function flippedConnector() {
   return `
     <div class="connector" style="transform: scaleY(-1);">
@@ -108,8 +100,6 @@ function wideConnector() {
 }
 
 function qfCardWithArrow(qf, pointRight) {
-  // Wrap the QF match card so we can position a directional arrow badge on it,
-  // indicating it advances into the Semi-final in the center column.
   const card = matchCard(qf, { roundLabel: 'Quarter-final', kind: 'qf' });
   const arrow = `<span class="advance-arrow">${pointRight ? '→' : '←'}</span>`;
   return `<div style="position:relative;">${card}${arrow}</div>`;
@@ -171,6 +161,24 @@ function renderCenter(sf1, sf2, final, thirdPlace) {
   `;
 }
 
+function renderTopScorers(scorers) {
+  const el = document.getElementById('top-scorers');
+  if (!el) return;
+  if (!scorers || scorers.length === 0) {
+    el.style.display = 'none';
+    return;
+  }
+  el.style.display = 'flex';
+  const items = scorers.slice(0, 3).map((s, i) => `
+    <div class="ts-item">
+      <span class="rank">${i + 1}</span>
+      <span class="ts-name">${s.name}</span>
+      <span class="ts-team">${s.teamCode || s.team || ''}</span>
+      <span class="goals">${s.goals}⚽</span>
+    </div>`).join('');
+  el.innerHTML = `<div class="ts-label">🥾 Golden Boot</div><div class="ts-list">${items}</div>`;
+}
+
 async function loadBracket() {
   try {
     const data = await fetchBracketData();
@@ -180,6 +188,7 @@ async function loadBracket() {
       renderSideColumn('side-right', q[2], q[3], false);
     }
     renderCenter(data.semis[0], data.semis[1], data.final, data.third_place);
+    renderTopScorers(data.top_scorers);
 
     const updatedEl = document.getElementById('updated-at');
     if (updatedEl && data.updated_at) {

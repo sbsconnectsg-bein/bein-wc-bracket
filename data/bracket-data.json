@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T04:51:38.493Z",
+  "updated_at": "2026-07-07T05:13:52.415Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -92,7 +92,7 @@
       "qf": {
         "id": null,
         "matchNumber": 98,
-        "kickoff": null,
+        "kickoff": "2026-07-10T19:00:00Z",
         "status": "SCHEDULED",
         "home": {
           "name": "Spain",
@@ -196,7 +196,7 @@
       "qf": {
         "id": null,
         "matchNumber": 100,
-        "kickoff": null,
+        "kickoff": "2026-07-12T01:00:00Z",
         "status": "SCHEDULED",
         "home": {
           "name": "TBD",
@@ -215,7 +215,7 @@
     {
       "id": null,
       "matchNumber": 101,
-      "kickoff": null,
+      "kickoff": "2026-07-14T19:00:00Z",
       "status": "SCHEDULED",
       "home": {
         "name": "TBD",
@@ -231,7 +231,7 @@
     {
       "id": null,
       "matchNumber": 102,
-      "kickoff": null,
+      "kickoff": "2026-07-15T19:00:00Z",
       "status": "SCHEDULED",
       "home": {
         "name": "TBD",
@@ -248,7 +248,7 @@
   "final": {
     "id": null,
     "matchNumber": 104,
-    "kickoff": null,
+    "kickoff": "2026-07-19T19:00:00Z",
     "status": "SCHEDULED",
     "home": {
       "name": "TBD",
@@ -264,7 +264,7 @@
   "third_place": {
     "id": null,
     "matchNumber": 103,
-    "kickoff": null,
+    "kickoff": "2026-07-18T21:00:00Z",
     "status": "SCHEDULED",
     "home": {
       "name": "TBD",

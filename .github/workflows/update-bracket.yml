@@ -2,9 +2,10 @@ name: Update World Cup Bracket
 
 on:
   schedule:
-    # Every 20 minutes (~72 calls/day) — stays safely under the free 100/day API-Football limit.
+    # Every 5 minutes (~288 calls/day) — football-data.org's free tier limit is
+    # 10 requests/minute, so this is nowhere close regardless of daily volume.
     # During a live match you can also click "Run workflow" below for an on-demand refresh.
-    - cron: '*/20 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch: {} # lets you trigger it manually from the Actions tab
 
 permissions:

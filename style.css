@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+
+:root{
+  --purple: #5A328B;
+  --purple-dark: #23133B;
+  --ink: #140D22;
+  --white: #FFFFFF;
+  --gold: #F2B705;
+  --muted: #B6A6D4;
+  --line: rgba(255,255,255,0.16);
+  --card: rgba(255,255,255,0.05);
+  --card-live: rgba(242,183,5,0.10);
+}
+*{ box-sizing: border-box; margin:0; padding:0; }
+html,body{
+  width:100%; height:100%;
+  background:
+    radial-gradient(120% 90% at 100% 0%, var(--purple) 0%, transparent 55%),
+    radial-gradient(120% 90% at 0% 100%, var(--purple-dark) 0%, transparent 60%),
+    var(--ink);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  overflow: hidden;
+}
+.stage{ width:100vw; height:100vh; display:flex; flex-direction:column; padding: 0.9vh 1.688vh; }
+
+.header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-bottom: 0.9vh; border-bottom: 1px solid var(--line); flex-shrink:0;
+}
+.header .brand{ display:flex; align-items:center; gap: 1.4vh; }
+.header .brand img{ height: 3.6vh; width:auto; display:block; }
+.header .divider{ width:1px; height:3vh; background: var(--line); }
+.header .title-block .eyebrow{
+  font-family:'Barlow Condensed'; font-weight:700; letter-spacing:0.12em;
+  font-size: 1.3vh; text-transform:uppercase; color: var(--gold);
+}
+.header .title-block h1{
+  font-family:'Barlow Condensed'; font-weight:800; font-size: 3.2vh; line-height:1; text-transform:uppercase;
+}
+.header .status{ display:flex; flex-direction:column; align-items:flex-end; gap:0.5vh; font-family:'Barlow Condensed'; color: var(--muted); flex-shrink:0; }
+.header .status .clock{ font-size:2.1vh; font-weight:700; color:var(--white); }
+.header .status .updated{ font-size:1.3vh; letter-spacing:0.02em; white-space:nowrap; }
+.header .status .updated .dot{
+  display:inline-block; width:1vh; height:1vh; border-radius:50%; background: var(--gold);
+  margin-right: 0.5vh; box-shadow: 0 0 6px var(--gold); animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.35; } }
+
+.footer{
+  flex-shrink:0; display:flex; justify-content:space-between; align-items:center;
+  padding-top: 0.4vh; margin-top:0.4vh; border-top:1px solid var(--line);
+  font-family:'Barlow Condensed'; font-size:1vh; color:var(--muted); letter-spacing:0.03em;
+}
+
+/* ---- match card base (shared) ---- */
+.match{ background: var(--card); border:1px solid var(--line); border-radius: 8px; overflow:hidden; position:relative; }
+.match.live{ background: var(--card-live); border-color: rgba(242,183,5,0.55); }
+.match .card-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0.35vh 0.8vh; font-family:'Barlow Condensed'; font-size: 1.1vh;
+  font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+  color: var(--muted); border-bottom: 1px solid var(--line);
+}
+.match .card-header .status-tag.finished{ color: var(--muted); }
+.match .card-header .status-tag.upcoming{ color: var(--gold); }
+.match .card-header .status-tag.live{ color: var(--gold); }
+.match.round-box .card-header{ background: rgba(242,183,5,0.12); color: var(--gold); border-bottom-color: rgba(242,183,5,0.35); }
+.match .row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0.45vh 0.8vh; font-family:'Barlow Condensed'; font-weight:600; font-size: 2vh;
+}
+.match .row + .row{ border-top:1px solid var(--line); }
+.match .row.winner{ color: var(--gold); font-weight:800; }
+.match .row.eliminated{ color: var(--muted); }
+.match .team{ display:flex; align-items:center; gap:0.6vh; overflow:hidden; }
+.match .code{ font-weight:800; font-size:0.6em; letter-spacing:0.04em; color: var(--muted); width:2.2em; flex-shrink:0; }
+.match .name{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.match .score{ font-family:'Barlow Condensed'; font-weight:800; font-size:1.1em; }
+.match .footer-line{
+  font-family:'Barlow Condensed'; font-size: 1vh; color: var(--muted);
+  text-align:right; padding: 0.3vh 0.8vh; letter-spacing:0.02em;
+}
+
+.trophy-card{ border:1.5px solid var(--gold) !important; background: linear-gradient(180deg, rgba(242,183,5,0.16), rgba(242,183,5,0.03)) !important; }
+.trophy-card .champion{
+  text-align:center; padding: 0.5vh 0; font-family:'Barlow Condensed'; font-weight:900;
+  font-size:2.4vh; color:var(--gold); text-transform:uppercase; letter-spacing:0.02em;
+  border-top: 1px solid rgba(242,183,5,0.35);
+}
+
+.columns-3{ display:flex; flex-direction:row; gap: 1.4vh; flex:1; min-height:0; padding-top: 0.6vh; }
+  .side-col{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:space-evenly; gap: 0.2vh; }
+  .center-col{ width: 32%; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; }
+
+  .quadrant{ display:flex; flex-direction:column; gap: 0.2vh; }
+  .feeder-pair{ display:flex; flex-direction:column; gap: 0.2vh; }
+  .connector{ display:flex; flex-direction:column; align-items:center; }
+  .connector-svg{ width:70%; height: 2.2vh; display:block; overflow:visible; }
+  .connector-svg path{ stroke: var(--gold); stroke-width: 2.2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* directional arrow badge on the QF card pointing toward the center column,
+     since a QF card's line-of-progression crosses from a side column into
+     the center column (avoids fragile cross-container line alignment) */
+  .advance-arrow{
+    position:absolute; top:50%; transform:translateY(-50%);
+    font-size: 1.6vh; color: var(--gold); font-weight:800;
+  }
+  .side-col.left .match.round-box .advance-arrow{ right: -1.6vh; }
+  .side-col.right .match.round-box .advance-arrow{ left: -1.6vh; }

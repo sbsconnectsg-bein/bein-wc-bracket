@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T18:18:06.258Z",
+  "updated_at": "2026-07-07T22:21:46.340Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -180,16 +180,16 @@
           "id": "537382",
           "matchNumber": 96,
           "kickoff": "2026-07-07T20:00:00Z",
-          "status": "TIMED",
+          "status": "PAUSED",
           "home": {
             "name": "Switzerland",
             "code": "SUI",
-            "score": null
+            "score": 0
           },
           "away": {
             "name": "Colombia",
             "code": "COL",
-            "score": null
+            "score": 0
           }
         }
       ],

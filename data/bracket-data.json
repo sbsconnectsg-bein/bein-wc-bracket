@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T00:18:20.819Z",
+  "updated_at": "2026-07-07T01:53:47.106Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -75,12 +75,12 @@
           "home": {
             "name": "United States",
             "code": "USA",
-            "score": 0
+            "score": 1
           },
           "away": {
             "name": "Belgium",
             "code": "BEL",
-            "score": 1
+            "score": 3
           }
         }
       ],

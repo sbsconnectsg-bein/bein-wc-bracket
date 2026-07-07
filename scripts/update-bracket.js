@@ -26,16 +26,23 @@ const STAGE_MAP = [
   { key: 'final', match: (s) => /^FINAL$/i.test(s.trim()) },
 ];
 
-// Which pair of Round-of-16 slots (0-indexed, in kickoff order = FIFA match
-// numbers 89-96 in order) feeds each of the 4 Quarter-final slots.
-// Quadrants are ordered so that quadrants[0]+[1] feed Semi-final 1, and
-// quadrants[2]+[3] feed Semi-final 2 — matching FIFA's official bracket.
 const QUADRANT_R16_PAIRS = [
-  [0, 1], // -> QF slot A (feeds SF1)
-  [4, 5], // -> QF slot B (feeds SF1)
-  [2, 3], // -> QF slot C (feeds SF2)
-  [6, 7], // -> QF slot D (feeds SF2)
+  [0, 1],
+  [4, 5],
+  [2, 3],
+  [6, 7],
 ];
+
+const FIXED_KICKOFFS = {
+  97: '2026-07-09T20:00:00Z',
+  98: '2026-07-10T19:00:00Z',
+  99: '2026-07-11T21:00:00Z',
+  100: '2026-07-12T01:00:00Z',
+  101: '2026-07-14T19:00:00Z',
+  102: '2026-07-15T19:00:00Z',
+  103: '2026-07-18T21:00:00Z',
+  104: '2026-07-19T19:00:00Z',
+};
 
 async function fetchMatches() {
   const url = `${BASE_URL}/competitions/${COMPETITION_CODE}/matches`;
@@ -59,7 +66,7 @@ function mapMatch(match, matchNumber) {
   return {
     id: String(match.id),
     matchNumber: matchNumber || null,
-    kickoff: match.utcDate || null,
+    kickoff: match.utcDate || FIXED_KICKOFFS[matchNumber] || null,
     status: match.status,
     home: { name: match.homeTeam.name || 'TBD', code: teamCode(match.homeTeam), score: fullTime.home ?? null },
     away: { name: match.awayTeam.name || 'TBD', code: teamCode(match.awayTeam), score: fullTime.away ?? null },
@@ -70,7 +77,7 @@ function placeholderMatch(nameA, nameB, matchNumber) {
   return {
     id: null,
     matchNumber: matchNumber || null,
-    kickoff: null,
+    kickoff: FIXED_KICKOFFS[matchNumber] || null,
     status: 'SCHEDULED',
     home: { name: nameA || 'TBD', code: nameA ? nameA.slice(0, 3).toUpperCase() : null, score: null },
     away: { name: nameB || 'TBD', code: nameB ? nameB.slice(0, 3).toUpperCase() : null, score: null },
@@ -89,9 +96,6 @@ function getLoserName(m) {
   return m.home.score > m.away.score ? m.away.name : m.home.name;
 }
 
-// Finds a real fixture from `pool` whose two teams match nameA/nameB (in
-// either order). Falls back to a TBD placeholder if not found yet or if
-// the team names aren't known yet.
 function resolveMatch(pool, nameA, nameB, matchNumber) {
   if (nameA && nameB) {
     const found = pool.find((raw) => {
@@ -111,17 +115,16 @@ async function main() {
   const allMatches = await main_fetchAndBucket();
   const { round16Raw, quarterRaw, semiRaw, thirdRaw, finalRaw } = allMatches;
 
-  // Sort R16 by kickoff time ascending -> matches FIFA's official match order (89-96).
   const round16 = round16Raw
     .slice()
     .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
-    .map((raw, idx) => mapMatch(raw, 89 + idx)); // official FIFA match numbers 89-96
+    .map((raw, idx) => mapMatch(raw, 89 + idx));
 
   if (round16.length !== 8) {
     console.warn(`Expected 8 Round-of-16 matches, found ${round16.length}. Bracket topology may be off until all 8 exist.`);
   }
 
-  const QF_MATCH_NUMBERS = [97, 98, 99, 100]; // official numbers, in quadrant order
+  const QF_MATCH_NUMBERS = [97, 98, 99, 100];
 
   const quadrants = QUADRANT_R16_PAIRS.map(([i, j], idx) => {
     const matchA = round16[i] || placeholderMatch(null, null, 89 + i);

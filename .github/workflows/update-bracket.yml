@@ -2,11 +2,15 @@ name: Update World Cup Bracket
 
 on:
   schedule:
-    # Every 15 minutes (~96 calls/day) — football-data.org's free tier limit is
-    # 10 requests/minute, so this is nowhere close regardless of daily volume.
-    # During a live match you can also click "Run workflow" below for an on-demand refresh.
+    # Every 15 minutes, nominally — GitHub Actions doesn't reliably honor
+    # very short cron intervals (this is a documented platform limitation,
+    # not something fixable via config), so treat this as "best effort,
+    # sometimes slower" rather than an exact guarantee. Given a match runs
+    # 90+ minutes, occasional delays beyond 15 min rarely matter in practice.
+    # During a live match you can also click "Run workflow" below for an
+    # on-demand refresh if you want it fresher right now.
     - cron: '*/15 * * * *'
-  workflow_dispatch: {} # lets you trigger it manually from the Actions tab
+  workflow_dispatch: {}
 
 permissions:
   contents: write

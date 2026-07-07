@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T06:17:16.971Z",
+  "updated_at": "2026-07-07T06:58:01.371Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -276,5 +276,25 @@
       "code": null,
       "score": null
     }
-  }
+  },
+  "top_scorers": [
+    {
+      "name": "Mbappé",
+      "team": "France",
+      "teamCode": "FRA",
+      "goals": 7
+    },
+    {
+      "name": "Haaland",
+      "team": "Norway",
+      "teamCode": "NOR",
+      "goals": 7
+    },
+    {
+      "name": "Messi",
+      "team": "Argentina",
+      "teamCode": "ARG",
+      "goals": 7
+    }
+  ]
 }

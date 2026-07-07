@@ -136,7 +136,7 @@ function renderCenter(sf1, sf2, final, thirdPlace) {
     : null;
 
   const finalTag = statusTag(final.status);
-  const finalHeader = finalTag.cls === 'live' ? 'LIVE' : '🏆 2026 World Cup Final';
+  const finalHeader = finalTag.cls === 'live' ? 'LIVE' : '🏆 Final';
   const thirdTag = statusTag(thirdPlace.status);
   const thirdHeader = thirdTag.cls === 'live' ? 'LIVE' : '3rd-Place Match';
 

@@ -127,3 +127,18 @@ html,body{
   }
   .side-col.left .match.round-box .advance-arrow{ right: -1.6vh; }
   .side-col.right .match.round-box .advance-arrow{ left: -1.6vh; }
+.top-scorers{
+  flex-shrink:0; display:flex; align-items:center; justify-content:space-between;
+  gap: 1.5vh; padding: 0.5vh 0.8vh; margin-top: 0.4vh;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  font-family:'Barlow Condensed';
+}
+.top-scorers .ts-label{
+  font-weight:800; color: var(--gold); text-transform:uppercase;
+  letter-spacing:0.06em; font-size: 1.3vh; white-space:nowrap;
+}
+.top-scorers .ts-list{ display:flex; gap: 2vh; flex-wrap:wrap; justify-content:flex-end; }
+.top-scorers .ts-item{ display:flex; align-items:center; gap: 0.5vh; font-size: 1.3vh; white-space:nowrap; }
+.top-scorers .ts-item .rank{ color: var(--gold); font-weight:800; }
+.top-scorers .ts-item .ts-team{ color: var(--muted); }
+.top-scorers .ts-item .goals{ font-weight:800; color: var(--white); }

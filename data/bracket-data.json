@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T02:01:44.279Z",
+  "updated_at": "2026-07-07T02:23:31.774Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -76,7 +76,7 @@
           "id": "537380",
           "matchNumber": 94,
           "kickoff": "2026-07-07T00:00:00Z",
-          "status": "IN_PLAY",
+          "status": "FINISHED",
           "home": {
             "name": "United States",
             "code": "USA",
@@ -100,8 +100,8 @@
           "score": null
         },
         "away": {
-          "name": "TBD",
-          "code": null,
+          "name": "Belgium",
+          "code": "BEL",
           "score": null
         }
       }

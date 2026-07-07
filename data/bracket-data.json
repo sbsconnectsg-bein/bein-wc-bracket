@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T05:19:44.765Z",
+  "updated_at": "2026-07-07T06:17:16.971Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -90,13 +90,13 @@
         }
       ],
       "qf": {
-        "id": null,
+        "id": "537384",
         "matchNumber": 98,
         "kickoff": "2026-07-10T19:00:00Z",
-        "status": "SCHEDULED",
+        "status": "TIMED",
         "home": {
           "name": "Spain",
-          "code": "SPA",
+          "code": "ESP",
           "score": null
         },
         "away": {
@@ -199,12 +199,12 @@
         "kickoff": "2026-07-12T01:00:00Z",
         "status": "SCHEDULED",
         "home": {
-          "name": "TBD",
+          "name": "W95",
           "code": null,
           "score": null
         },
         "away": {
-          "name": "TBD",
+          "name": "W96",
           "code": null,
           "score": null
         }
@@ -218,12 +218,12 @@
       "kickoff": "2026-07-14T19:00:00Z",
       "status": "SCHEDULED",
       "home": {
-        "name": "TBD",
+        "name": "W97",
         "code": null,
         "score": null
       },
       "away": {
-        "name": "TBD",
+        "name": "W98",
         "code": null,
         "score": null
       }
@@ -234,12 +234,12 @@
       "kickoff": "2026-07-15T19:00:00Z",
       "status": "SCHEDULED",
       "home": {
-        "name": "TBD",
+        "name": "W99",
         "code": null,
         "score": null
       },
       "away": {
-        "name": "TBD",
+        "name": "W100",
         "code": null,
         "score": null
       }
@@ -251,12 +251,12 @@
     "kickoff": "2026-07-19T19:00:00Z",
     "status": "SCHEDULED",
     "home": {
-      "name": "TBD",
+      "name": "W101",
       "code": null,
       "score": null
     },
     "away": {
-      "name": "TBD",
+      "name": "W102",
       "code": null,
       "score": null
     }
@@ -267,12 +267,12 @@
     "kickoff": "2026-07-18T21:00:00Z",
     "status": "SCHEDULED",
     "home": {
-      "name": "TBD",
+      "name": "L101",
       "code": null,
       "score": null
     },
     "away": {
-      "name": "TBD",
+      "name": "L102",
       "code": null,
       "score": null
     }

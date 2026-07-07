@@ -54,10 +54,11 @@ function teamCode(team) {
   return (team.name || '').slice(0, 3).toUpperCase() || null;
 }
 
-function mapMatch(match) {
+function mapMatch(match, matchNumber) {
   const fullTime = match.score && match.score.fullTime ? match.score.fullTime : {};
   return {
     id: String(match.id),
+    matchNumber: matchNumber || null,
     kickoff: match.utcDate || null,
     status: match.status,
     home: { name: match.homeTeam.name || 'TBD', code: teamCode(match.homeTeam), score: fullTime.home ?? null },
@@ -65,9 +66,10 @@ function mapMatch(match) {
   };
 }
 
-function placeholderMatch(nameA, nameB) {
+function placeholderMatch(nameA, nameB, matchNumber) {
   return {
     id: null,
+    matchNumber: matchNumber || null,
     kickoff: null,
     status: 'SCHEDULED',
     home: { name: nameA || 'TBD', code: nameA ? nameA.slice(0, 3).toUpperCase() : null, score: null },
@@ -90,15 +92,15 @@ function getLoserName(m) {
 // Finds a real fixture from `pool` whose two teams match nameA/nameB (in
 // either order). Falls back to a TBD placeholder if not found yet or if
 // the team names aren't known yet.
-function resolveMatch(pool, nameA, nameB) {
+function resolveMatch(pool, nameA, nameB, matchNumber) {
   if (nameA && nameB) {
     const found = pool.find((raw) => {
       const h = raw.homeTeam.name, a = raw.awayTeam.name;
       return (h === nameA && a === nameB) || (h === nameB && a === nameA);
     });
-    if (found) return mapMatch(found);
+    if (found) return mapMatch(found, matchNumber);
   }
-  return placeholderMatch(nameA, nameB);
+  return placeholderMatch(nameA, nameB, matchNumber);
 }
 
 async function main() {
@@ -113,26 +115,28 @@ async function main() {
   const round16 = round16Raw
     .slice()
     .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
-    .map(mapMatch);
+    .map((raw, idx) => mapMatch(raw, 89 + idx)); // official FIFA match numbers 89-96
 
   if (round16.length !== 8) {
     console.warn(`Expected 8 Round-of-16 matches, found ${round16.length}. Bracket topology may be off until all 8 exist.`);
   }
 
-  const quadrants = QUADRANT_R16_PAIRS.map(([i, j]) => {
-    const matchA = round16[i] || placeholderMatch(null, null);
-    const matchB = round16[j] || placeholderMatch(null, null);
+  const QF_MATCH_NUMBERS = [97, 98, 99, 100]; // official numbers, in quadrant order
+
+  const quadrants = QUADRANT_R16_PAIRS.map(([i, j], idx) => {
+    const matchA = round16[i] || placeholderMatch(null, null, 89 + i);
+    const matchB = round16[j] || placeholderMatch(null, null, 89 + j);
     const winnerA = getWinnerName(matchA);
     const winnerB = getWinnerName(matchB);
-    const qf = resolveMatch(quarterRaw, winnerA, winnerB);
+    const qf = resolveMatch(quarterRaw, winnerA, winnerB, QF_MATCH_NUMBERS[idx]);
     return { r16: [matchA, matchB], qf };
   });
 
-  const sf1 = resolveMatch(semiRaw, getWinnerName(quadrants[0].qf), getWinnerName(quadrants[1].qf));
-  const sf2 = resolveMatch(semiRaw, getWinnerName(quadrants[2].qf), getWinnerName(quadrants[3].qf));
+  const sf1 = resolveMatch(semiRaw, getWinnerName(quadrants[0].qf), getWinnerName(quadrants[1].qf), 101);
+  const sf2 = resolveMatch(semiRaw, getWinnerName(quadrants[2].qf), getWinnerName(quadrants[3].qf), 102);
 
-  const final = resolveMatch(finalRaw, getWinnerName(sf1), getWinnerName(sf2));
-  const thirdPlace = resolveMatch(thirdRaw, getLoserName(sf1), getLoserName(sf2));
+  const final = resolveMatch(finalRaw, getWinnerName(sf1), getWinnerName(sf2), 104);
+  const thirdPlace = resolveMatch(thirdRaw, getLoserName(sf1), getLoserName(sf2), 103);
 
   const output = {
     updated_at: new Date().toISOString(),

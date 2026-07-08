@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-08T03:35:27.869Z",
+  "updated_at": "2026-07-08T03:40:52.795Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -9,6 +9,9 @@
           "matchNumber": 89,
           "kickoff": "2026-07-04T17:00:00Z",
           "status": "FINISHED",
+          "winner": "AWAY_TEAM",
+          "duration": "REGULAR",
+          "penalties": null,
           "home": {
             "name": "Canada",
             "code": "CAN",
@@ -25,6 +28,9 @@
           "matchNumber": 90,
           "kickoff": "2026-07-04T21:00:00Z",
           "status": "FINISHED",
+          "winner": "AWAY_TEAM",
+          "duration": "REGULAR",
+          "penalties": null,
           "home": {
             "name": "Paraguay",
             "code": "PAR",
@@ -42,6 +48,9 @@
         "matchNumber": 97,
         "kickoff": "2026-07-09T20:00:00Z",
         "status": "TIMED",
+        "winner": null,
+        "duration": "REGULAR",
+        "penalties": null,
         "home": {
           "name": "France",
           "code": "FRA",
@@ -61,6 +70,9 @@
           "matchNumber": 93,
           "kickoff": "2026-07-06T19:00:00Z",
           "status": "FINISHED",
+          "winner": "AWAY_TEAM",
+          "duration": "REGULAR",
+          "penalties": null,
           "home": {
             "name": "Portugal",
             "code": "POR",
@@ -77,6 +89,9 @@
           "matchNumber": 94,
           "kickoff": "2026-07-07T00:00:00Z",
           "status": "FINISHED",
+          "winner": "AWAY_TEAM",
+          "duration": "REGULAR",
+          "penalties": null,
           "home": {
             "name": "United States",
             "code": "USA",
@@ -94,6 +109,9 @@
         "matchNumber": 98,
         "kickoff": "2026-07-10T19:00:00Z",
         "status": "TIMED",
+        "winner": null,
+        "duration": "REGULAR",
+        "penalties": null,
         "home": {
           "name": "Spain",
           "code": "ESP",
@@ -113,6 +131,9 @@
           "matchNumber": 91,
           "kickoff": "2026-07-05T20:00:00Z",
           "status": "FINISHED",
+          "winner": "AWAY_TEAM",
+          "duration": "REGULAR",
+          "penalties": null,
           "home": {
             "name": "Brazil",
             "code": "BRA",
@@ -129,6 +150,9 @@
           "matchNumber": 92,
           "kickoff": "2026-07-06T01:00:00Z",
           "status": "FINISHED",
+          "winner": "AWAY_TEAM",
+          "duration": "REGULAR",
+          "penalties": null,
           "home": {
             "name": "Mexico",
             "code": "MEX",
@@ -146,6 +170,9 @@
         "matchNumber": 99,
         "kickoff": "2026-07-11T21:00:00Z",
         "status": "TIMED",
+        "winner": null,
+        "duration": "REGULAR",
+        "penalties": null,
         "home": {
           "name": "Norway",
           "code": "NOR",
@@ -165,6 +192,9 @@
           "matchNumber": 95,
           "kickoff": "2026-07-07T16:00:00Z",
           "status": "FINISHED",
+          "winner": "HOME_TEAM",
+          "duration": "REGULAR",
+          "penalties": null,
           "home": {
             "name": "Argentina",
             "code": "ARG",
@@ -181,15 +211,21 @@
           "matchNumber": 96,
           "kickoff": "2026-07-07T20:00:00Z",
           "status": "FINISHED",
+          "winner": null,
+          "duration": "PENALTY_SHOOTOUT",
+          "penalties": {
+            "home": 3,
+            "away": 3
+          },
           "home": {
             "name": "Switzerland",
             "code": "SUI",
-            "score": 4
+            "score": 0
           },
           "away": {
             "name": "Colombia",
             "code": "COL",
-            "score": 3
+            "score": 0
           }
         }
       ],
@@ -198,14 +234,17 @@
         "matchNumber": 100,
         "kickoff": "2026-07-12T01:00:00Z",
         "status": "SCHEDULED",
+        "winner": null,
+        "duration": null,
+        "penalties": null,
         "home": {
           "name": "Argentina",
           "code": "ARG",
           "score": null
         },
         "away": {
-          "name": "Switzerland",
-          "code": "SWI",
+          "name": "W96",
+          "code": null,
           "score": null
         }
       }
@@ -217,6 +256,9 @@
       "matchNumber": 101,
       "kickoff": "2026-07-14T19:00:00Z",
       "status": "SCHEDULED",
+      "winner": null,
+      "duration": null,
+      "penalties": null,
       "home": {
         "name": "W97",
         "code": null,
@@ -233,6 +275,9 @@
       "matchNumber": 102,
       "kickoff": "2026-07-15T19:00:00Z",
       "status": "SCHEDULED",
+      "winner": null,
+      "duration": null,
+      "penalties": null,
       "home": {
         "name": "W99",
         "code": null,
@@ -250,6 +295,9 @@
     "matchNumber": 104,
     "kickoff": "2026-07-19T19:00:00Z",
     "status": "SCHEDULED",
+    "winner": null,
+    "duration": null,
+    "penalties": null,
     "home": {
       "name": "W101",
       "code": null,
@@ -266,6 +314,9 @@
     "matchNumber": 103,
     "kickoff": "2026-07-18T21:00:00Z",
     "status": "SCHEDULED",
+    "winner": null,
+    "duration": null,
+    "penalties": null,
     "home": {
       "name": "L101",
       "code": null,

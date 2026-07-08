@@ -18,36 +18,26 @@ function statusTag(status) {
   return { text: 'UPCOMING', cls: 'upcoming' };
 }
 
-function teamRow(team, isWinner, decided) {
+function teamRow(team, isWinner, decided, pkCount) {
   const hasScore = team.score !== null && team.score !== undefined;
   const rowClass = decided ? (isWinner ? 'winner' : 'eliminated') : '';
   const code = team.code ? team.code : '—';
   const name = team.name || 'TBD';
   const score = hasScore ? team.score : '';
+  const pk = (pkCount !== null && pkCount !== undefined) ? `<span class="pk">(${pkCount})</span>` : '';
   return `
     <div class="row ${rowClass}">
       <div class="team"><span class="code">${code}</span><span class="name">${name}</span></div>
-      <div class="score">${score}</div>
+      <div class="score">${pk}${score}</div>
     </div>`;
 }
 
-// Knockout matches can be decided in extra time or a penalty shootout —
-// this returns a short label to append next to the date. A shootout only
-// ever happens after extra time also ends level, so we show both markers
-// together ("AET, Pens 4-3") rather than just the shootout score alone,
-// which would silently drop the fact 30 extra minutes were played first.
 function resultNote(match) {
-  if (match.duration === 'PENALTY_SHOOTOUT' && match.penalties) {
-    return `AET, Pens ${match.penalties.home}-${match.penalties.away}`;
-  }
   if (match.duration === 'EXTRA_TIME') return 'AET';
+  if (match.duration === 'PENALTY_SHOOTOUT') return 'AET &middot; Penalties';
   return '';
 }
 
-// roundLabel: e.g. "Quarter-final", "Semi-final 1" — shown permanently as
-// the card's header (defaults to "Round of 16" when not given), EXCEPT
-// while a match is actually live, when "LIVE" temporarily takes its place.
-// kind: 'qf' | 'sf' — accent color per stage; defaults to a neutral 'r16'.
 function matchCard(match, { roundLabel, kind } = {}) {
   const tag = statusTag(match.status);
   const stageLabel = roundLabel || 'Round of 16';
@@ -59,14 +49,16 @@ function matchCard(match, { roundLabel, kind } = {}) {
   const footer = note
     ? `${formatKickoffSGT(match.kickoff)} &middot; ${note}`
     : formatKickoffSGT(match.kickoff);
+  const pkHome = match.duration === 'PENALTY_SHOOTOUT' && match.penalties ? match.penalties.home : null;
+  const pkAway = match.duration === 'PENALTY_SHOOTOUT' && match.penalties ? match.penalties.away : null;
   return `
     <div class="match ${tag.cls === 'live' ? 'live' : ''} round-box ${kindClass}">
       <div class="card-header">
         <span class="status-tag ${tag.cls}">${headerText}</span>
         <span>${num}</span>
       </div>
-      ${teamRow(match.home, match.winner === 'HOME_TEAM', decided)}
-      ${teamRow(match.away, match.winner === 'AWAY_TEAM', decided)}
+      ${teamRow(match.home, match.winner === 'HOME_TEAM', decided, pkHome)}
+      ${teamRow(match.away, match.winner === 'AWAY_TEAM', decided, pkAway)}
       <div class="footer-line">${footer}</div>
     </div>`;
 }
@@ -97,10 +89,6 @@ function connector() {
     </div>`;
 }
 
-// Same shape as connector(), but flipped vertically — used when the two
-// feeder matches render BELOW the box they feed into instead of above it
-// (as with QF98/QF100, whose R16 feeders are shown after them for layout
-// reasons), so the merge line still correctly points into the result.
 function flippedConnector() {
   return `
     <div class="connector" style="transform: scaleY(-1);">
@@ -165,6 +153,10 @@ function renderCenter(sf1, sf2, final, thirdPlace) {
   const finalFooter = finalNote ? `${formatKickoffSGT(final.kickoff)} &middot; ${finalNote}` : formatKickoffSGT(final.kickoff);
   const thirdNote = resultNote(thirdPlace);
   const thirdFooter = thirdNote ? `${formatKickoffSGT(thirdPlace.kickoff)} &middot; ${thirdNote}` : formatKickoffSGT(thirdPlace.kickoff);
+  const finalPkHome = final.duration === 'PENALTY_SHOOTOUT' && final.penalties ? final.penalties.home : null;
+  const finalPkAway = final.duration === 'PENALTY_SHOOTOUT' && final.penalties ? final.penalties.away : null;
+  const thirdPkHome = thirdPlace.duration === 'PENALTY_SHOOTOUT' && thirdPlace.penalties ? thirdPlace.penalties.home : null;
+  const thirdPkAway = thirdPlace.duration === 'PENALTY_SHOOTOUT' && thirdPlace.penalties ? thirdPlace.penalties.away : null;
 
   el.innerHTML = `
     ${matchCard(sf1, { roundLabel: 'Semi-final 1', kind: 'sf' })}
@@ -172,15 +164,15 @@ function renderCenter(sf1, sf2, final, thirdPlace) {
     ${wideConnector()}
     <div class="match round-box kind-r16 ${thirdTag.cls === 'live' ? 'live' : ''}">
       <div class="card-header"><span>${thirdHeader}</span><span>Match ${thirdPlace.matchNumber || ''}</span></div>
-      ${teamRow(thirdPlace.home, thirdPlace.winner === 'HOME_TEAM', thirdDecided)}
-      ${teamRow(thirdPlace.away, thirdPlace.winner === 'AWAY_TEAM', thirdDecided)}
+      ${teamRow(thirdPlace.home, thirdPlace.winner === 'HOME_TEAM', thirdDecided, thirdPkHome)}
+      ${teamRow(thirdPlace.away, thirdPlace.winner === 'AWAY_TEAM', thirdDecided, thirdPkAway)}
       <div class="footer-line">${thirdFooter}</div>
     </div>
     ${connector()}
     <div class="match trophy-card ${finalTag.cls === 'live' ? 'live' : ''}">
       <div class="card-header"><span>${finalHeader}</span><span>Match ${final.matchNumber || ''}</span></div>
-      ${teamRow(final.home, final.winner === 'HOME_TEAM', finalDecided)}
-      ${teamRow(final.away, final.winner === 'AWAY_TEAM', finalDecided)}
+      ${teamRow(final.home, final.winner === 'HOME_TEAM', finalDecided, finalPkHome)}
+      ${teamRow(final.away, final.winner === 'AWAY_TEAM', finalDecided, finalPkAway)}
       <div class="footer-line">${finalFooter}</div>
       ${championName ? `<div class="champion">${championName}</div>` : ''}
     </div>

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-08T04:05:27.535Z",
+  "updated_at": "2026-07-08T04:06:43.399Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -211,10 +211,10 @@
           "matchNumber": 96,
           "kickoff": "2026-07-07T20:00:00Z",
           "status": "FINISHED",
-          "winner": null,
+          "winner": "HOME_TEAM",
           "duration": "PENALTY_SHOOTOUT",
           "penalties": {
-            "home": 3,
+            "home": 4,
             "away": 3
           },
           "home": {
@@ -243,8 +243,8 @@
           "score": null
         },
         "away": {
-          "name": "W96",
-          "code": null,
+          "name": "Switzerland",
+          "code": "SWI",
           "score": null
         }
       }

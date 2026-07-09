@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T21:30:49.736Z",
+  "updated_at": "2026-07-09T21:45:28.206Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -54,7 +54,7 @@
         "home": {
           "name": "France",
           "code": "FRA",
-          "score": 1
+          "score": 2
         },
         "away": {
           "name": "Morocco",

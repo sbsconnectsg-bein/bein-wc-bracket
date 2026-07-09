@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T22:00:57.783Z",
+  "updated_at": "2026-07-09T22:15:30.848Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -47,7 +47,7 @@
         "id": "537383",
         "matchNumber": 97,
         "kickoff": "2026-07-09T20:00:00Z",
-        "status": "IN_PLAY",
+        "status": "FINISHED",
         "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "penalties": null,
@@ -260,8 +260,8 @@
       "duration": null,
       "penalties": null,
       "home": {
-        "name": "W97",
-        "code": null,
+        "name": "France",
+        "code": "FRA",
         "score": null
       },
       "away": {

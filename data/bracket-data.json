@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T21:15:32.824Z",
+  "updated_at": "2026-07-09T21:30:49.736Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -48,13 +48,13 @@
         "matchNumber": 97,
         "kickoff": "2026-07-09T20:00:00Z",
         "status": "IN_PLAY",
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "penalties": null,
         "home": {
           "name": "France",
           "code": "FRA",
-          "score": 0
+          "score": 1
         },
         "away": {
           "name": "Morocco",
@@ -330,16 +330,16 @@
   },
   "top_scorers": [
     {
+      "name": "Mbappé",
+      "team": "France",
+      "teamCode": "FRA",
+      "goals": 8
+    },
+    {
       "name": "Messi",
       "team": "Argentina",
       "teamCode": "ARG",
       "goals": 8
-    },
-    {
-      "name": "Mbappé",
-      "team": "France",
-      "teamCode": "FRA",
-      "goals": 7
     },
     {
       "name": "Haaland",

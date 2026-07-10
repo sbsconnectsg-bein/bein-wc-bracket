@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T19:00:59.255Z",
+  "updated_at": "2026-07-10T19:15:32.092Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -108,19 +108,19 @@
         "id": "537384",
         "matchNumber": 98,
         "kickoff": "2026-07-10T19:00:00Z",
-        "status": "TIMED",
-        "winner": null,
+        "status": "IN_PLAY",
+        "winner": "DRAW",
         "duration": "REGULAR",
         "penalties": null,
         "home": {
           "name": "Spain",
           "code": "ESP",
-          "score": null
+          "score": 0
         },
         "away": {
           "name": "Belgium",
           "code": "BEL",
-          "score": null
+          "score": 0
         }
       }
     },

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T06:01:00.808Z",
+  "updated_at": "2026-07-11T06:15:31.261Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -252,12 +252,12 @@
   ],
   "semis": [
     {
-      "id": null,
+      "id": "537387",
       "matchNumber": 101,
       "kickoff": "2026-07-14T19:00:00Z",
-      "status": "SCHEDULED",
+      "status": "TIMED",
       "winner": null,
-      "duration": null,
+      "duration": "REGULAR",
       "penalties": null,
       "home": {
         "name": "France",
@@ -266,7 +266,7 @@
       },
       "away": {
         "name": "Spain",
-        "code": "SPA",
+        "code": "ESP",
         "score": null
       }
     },

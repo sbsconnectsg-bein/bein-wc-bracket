@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T23:00:58.537Z",
+  "updated_at": "2026-07-11T23:09:21.751Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -169,14 +169,14 @@
         "id": "537385",
         "matchNumber": 99,
         "kickoff": "2026-07-11T21:00:00Z",
-        "status": "IN_PLAY",
-        "winner": "HOME_TEAM",
+        "status": "PAUSED",
+        "winner": "DRAW",
         "duration": "REGULAR",
         "penalties": null,
         "home": {
           "name": "Norway",
           "code": "NOR",
-          "score": 2
+          "score": 1
         },
         "away": {
           "name": "England",
@@ -279,8 +279,8 @@
       "duration": null,
       "penalties": null,
       "home": {
-        "name": "Norway",
-        "code": "NOR",
+        "name": "W99",
+        "code": null,
         "score": null
       },
       "away": {

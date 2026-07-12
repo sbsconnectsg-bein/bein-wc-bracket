@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T03:00:57.245Z",
+  "updated_at": "2026-07-12T03:16:41.539Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -233,9 +233,9 @@
         "id": "537386",
         "matchNumber": 100,
         "kickoff": "2026-07-12T01:00:00Z",
-        "status": "IN_PLAY",
+        "status": "PAUSED",
         "winner": "DRAW",
-        "duration": "REGULAR",
+        "duration": "EXTRA_TIME",
         "penalties": null,
         "home": {
           "name": "Argentina",

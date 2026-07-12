@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T02:30:52.132Z",
+  "updated_at": "2026-07-12T02:45:32.911Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -234,7 +234,7 @@
         "matchNumber": 100,
         "kickoff": "2026-07-12T01:00:00Z",
         "status": "IN_PLAY",
-        "winner": "HOME_TEAM",
+        "winner": "DRAW",
         "duration": "REGULAR",
         "penalties": null,
         "home": {
@@ -245,7 +245,7 @@
         "away": {
           "name": "Switzerland",
           "code": "SUI",
-          "score": 0
+          "score": 1
         }
       }
     }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T00:02:29.017Z",
+  "updated_at": "2026-07-12T00:17:13.780Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -349,6 +349,12 @@
     },
     {
       "name": "Kane",
+      "team": "England",
+      "teamCode": "ENG",
+      "goals": 6
+    },
+    {
+      "name": "Bellingham",
       "team": "England",
       "teamCode": "ENG",
       "goals": 6

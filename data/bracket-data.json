@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T03:45:31.727Z",
+  "updated_at": "2026-07-12T03:48:42.223Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -240,7 +240,7 @@
         "home": {
           "name": "Argentina",
           "code": "ARG",
-          "score": 2
+          "score": 3
         },
         "away": {
           "name": "Switzerland",

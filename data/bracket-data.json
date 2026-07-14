@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T20:15:32.020Z",
+  "updated_at": "2026-07-14T20:30:53.061Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -267,7 +267,7 @@
       "away": {
         "name": "Spain",
         "code": "ESP",
-        "score": 1
+        "score": 2
       }
     },
     {

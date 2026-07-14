@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T21:00:59.469Z",
+  "updated_at": "2026-07-14T21:15:29.288Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -255,7 +255,7 @@
       "id": "537387",
       "matchNumber": 101,
       "kickoff": "2026-07-14T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "winner": "AWAY_TEAM",
       "duration": "REGULAR",
       "penalties": null,
@@ -299,8 +299,8 @@
     "duration": null,
     "penalties": null,
     "home": {
-      "name": "W101",
-      "code": null,
+      "name": "Spain",
+      "code": "SPA",
       "score": null
     },
     "away": {
@@ -318,8 +318,8 @@
     "duration": null,
     "penalties": null,
     "home": {
-      "name": "L101",
-      "code": null,
+      "name": "France",
+      "code": "FRA",
       "score": null
     },
     "away": {

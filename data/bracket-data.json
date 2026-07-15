@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-15T19:00:58.252Z",
+  "updated_at": "2026-07-15T19:15:28.881Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -274,19 +274,19 @@
       "id": "537388",
       "matchNumber": 102,
       "kickoff": "2026-07-15T19:00:00Z",
-      "status": "TIMED",
-      "winner": null,
+      "status": "IN_PLAY",
+      "winner": "DRAW",
       "duration": "REGULAR",
       "penalties": null,
       "home": {
         "name": "England",
         "code": "ENG",
-        "score": null
+        "score": 0
       },
       "away": {
         "name": "Argentina",
         "code": "ARG",
-        "score": null
+        "score": 0
       }
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T06:01:00.015Z",
+  "updated_at": "2026-07-16T06:15:30.852Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -291,16 +291,16 @@
     }
   ],
   "final": {
-    "id": null,
+    "id": "537390",
     "matchNumber": 104,
     "kickoff": "2026-07-19T19:00:00Z",
-    "status": "SCHEDULED",
+    "status": "TIMED",
     "winner": null,
-    "duration": null,
+    "duration": "REGULAR",
     "penalties": null,
     "home": {
       "name": "Spain",
-      "code": "SPA",
+      "code": "ESP",
       "score": null
     },
     "away": {
@@ -310,12 +310,12 @@
     }
   },
   "third_place": {
-    "id": null,
+    "id": "537389",
     "matchNumber": 103,
     "kickoff": "2026-07-18T21:00:00Z",
-    "status": "SCHEDULED",
+    "status": "TIMED",
     "winner": null,
-    "duration": null,
+    "duration": "REGULAR",
     "penalties": null,
     "home": {
       "name": "France",

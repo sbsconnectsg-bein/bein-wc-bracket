@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+
+:root{
+  --purple: #5A328B;
+  --purple-dark: #23133B;
+  --ink: #140D22;
+  --white: #FFFFFF;
+  --gold: #F2B705;
+  --qf-color: #2DD4BF;
+  --sf-color: #FB923C;
+  --muted: #B6A6D4;
+  --line: rgba(255,255,255,0.16);
+  --card: rgba(255,255,255,0.05);
+  --card-live: rgba(242,183,5,0.10);
+}
+*{ box-sizing: border-box; margin:0; padding:0; }
+html,body{
+  width:100%; height:100%;
+  background:
+    radial-gradient(120% 90% at 100% 0%, var(--purple) 0%, transparent 55%),
+    radial-gradient(120% 90% at 0% 100%, var(--purple-dark) 0%, transparent 60%),
+    var(--ink);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  overflow: hidden;
+}
+.stage{ width:100vw; height:100vh; display:flex; flex-direction:column; padding: 0.9vh 1.688vh; }
+
+.header{ flex-shrink:0; padding-bottom: 0.9vh; border-bottom: 1px solid var(--line); }
+.header-top{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-bottom: 0.7vh;
+}
+.header-top .logo{ height: 4vh; width:auto; display:block; }
+.header .status{ display:flex; flex-direction:column; align-items:flex-end; gap:0.5vh; font-family:'Barlow Condensed'; color: var(--muted); flex-shrink:0; }
+.header .status .clock{ font-size:2.3vh; font-weight:700; color:var(--white); }
+.header .status .updated{ font-size:1.3vh; letter-spacing:0.02em; white-space:nowrap; }
+.header .status .updated .dot{
+  display:inline-block; width:1vh; height:1vh; border-radius:50%; background: var(--gold);
+  margin-right: 0.5vh; box-shadow: 0 0 6px var(--gold); animation: pulse 1.6s ease-in-out infinite;
+}
+.header-title{ padding-top: 0.5vh; }
+.header-title .eyebrow{
+  font-family:'Barlow Condensed'; font-weight:700; letter-spacing:0.14em;
+  font-size: 1.6vh; text-transform:uppercase; color: var(--gold);
+}
+.header-title h1{
+  font-family:'Barlow Condensed'; font-weight:800; font-size: 4.6vh; line-height:1.05; text-transform:uppercase;
+}
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.35; } }
+
+.footer{
+  flex-shrink:0; display:flex; justify-content:space-between; align-items:center;
+  padding-top: 0.4vh; margin-top:0.4vh; border-top:1px solid var(--line);
+  font-family:'Barlow Condensed'; font-size:1vh; color:var(--muted); letter-spacing:0.03em;
+}
+
+.top-scorers{
+  flex-shrink:0; display:flex; flex-direction:column; align-items:stretch;
+  gap: 0.3vh; padding: 0.5vh 0.9vh; margin-top: 0.4vh;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  font-family:'Barlow Condensed';
+}
+.top-scorers .ts-label{
+  font-weight:800; color: var(--gold); text-transform:uppercase;
+  letter-spacing:0.06em; font-size: 1.3vh; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:0.4vh;
+}
+.top-scorers .icon-boot{ width:1.4vh; height:1.4vh; flex-shrink:0; }
+.top-scorers .icon-ball{ width:1.1vh; height:1.1vh; color: var(--white); vertical-align:middle; margin-left:0.2vh; }
+.top-scorers .ts-list{ display:flex; gap: 0.6vh; flex-wrap:nowrap; justify-content:space-between; min-width:0; }
+.top-scorers .ts-item{ display:flex; align-items:center; gap: 0.3vh; font-size: 1.25vh; white-space:nowrap; }
+.top-scorers .ts-item .rank{ color: var(--gold); font-weight:800; }
+.top-scorers .ts-item .ts-team{ color: var(--muted); }
+.top-scorers .ts-item .goals{ font-weight:800; color: var(--white); }
+
+/* ---- match card base (shared) ---- */
+.match{ background: var(--card); border:1px solid var(--line); border-radius: 8px; overflow:hidden; position:relative; }
+.match.live{ background: var(--card-live); border-color: rgba(242,183,5,0.55); }
+.match .card-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0.35vh 0.8vh; font-family:'Barlow Condensed'; font-size: 1.1vh;
+  font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+  color: var(--muted); border-bottom: 1px solid var(--line);
+}
+.match .card-header .status-tag.finished{ color: var(--muted); }
+.match .card-header .status-tag.upcoming{ color: var(--gold); }
+.match .card-header .status-tag.live{ color: var(--gold); }
+.match.round-box .card-header{ background: rgba(242,183,5,0.12); color: var(--gold); border-bottom-color: rgba(242,183,5,0.35); }
+
+/* Round of 16 is the default/neutral stage — no special accent color,
+   so QF/SF/Final visually "pop" more as the bracket advances. */
+.match.kind-r16 .card-header{ background: rgba(255,255,255,0.04); color: var(--muted); border-bottom-color: var(--line); }
+
+/* QF and SF each get their own accent color so the bracket reads at a
+   glance which stage a box belongs to; Final keeps gold (trophy-card below). */
+.match.kind-qf{ border-color: rgba(45,212,191,0.55); }
+.match.kind-qf .card-header{ background: rgba(45,212,191,0.14); color: var(--qf-color); border-bottom-color: rgba(45,212,191,0.4); }
+
+.match.kind-sf{ border-color: rgba(251,146,60,0.55); }
+.match.kind-sf .card-header{ background: rgba(251,146,60,0.14); color: var(--sf-color); border-bottom-color: rgba(251,146,60,0.4); }
+
+/* LIVE always overrides the stage color with an urgent gold treatment,
+   regardless of which round the card belongs to. */
+.match.live .card-header{ background: rgba(242,183,5,0.2); color: var(--gold); border-bottom-color: rgba(242,183,5,0.5); }
+.match .row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0.45vh 0.8vh; font-family:'Barlow Condensed'; font-weight:600; font-size: 2vh;
+}
+.match .row + .row{ border-top:1px solid var(--line); }
+.match .row.winner{ color: var(--gold); font-weight:900; background: rgba(242,183,5,0.16); }
+.match .row.eliminated{ color: rgba(182,166,212,0.5); font-weight:500; }
+.match .team{ display:flex; align-items:center; gap:0.6vh; overflow:hidden; }
+.match .code{ font-weight:800; font-size:0.6em; letter-spacing:0.04em; color: var(--muted); width:2.2em; flex-shrink:0; }
+.match .name{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.match .score{ font-family:'Barlow Condensed'; font-weight:800; font-size:1.1em; }
+.match .score .pk{ font-weight:700; font-size:0.7em; color: var(--muted); margin-right:0.3em; }
+.match .row.winner .score .pk{ color: var(--gold); opacity:0.85; }
+.match .footer-line{
+  font-family:'Barlow Condensed'; font-size: 1vh; color: var(--muted);
+  text-align:right; padding: 0.3vh 0.8vh; letter-spacing:0.02em;
+}
+
+.trophy-card{ border:1.5px solid var(--gold) !important; background: linear-gradient(180deg, rgba(242,183,5,0.16), rgba(242,183,5,0.03)) !important; }
+.trophy-card .icon-trophy{ width:1.6vh; height:1.6vh; fill:var(--gold); vertical-align:middle; margin-right:0.3vh; }
+.trophy-card .champion{
+  text-align:center; padding: 0.5vh 0; font-family:'Barlow Condensed'; font-weight:900;
+  font-size:2.4vh; color:var(--gold); text-transform:uppercase; letter-spacing:0.02em;
+  border-top: 1px solid rgba(242,183,5,0.35);
+}
+
+.columns-3{ display:flex; flex-direction:row; gap: 1.4vh; flex:1; min-height:0; padding-top: 0.6vh; }
+  .side-col{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; gap: 1vh; }
+  .center-col{ width: 32%; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; gap: 0.4vh; }
+
+  .quadrant{ display:flex; flex-direction:column; gap: 0.2vh; }
+  .feeder-pair{ display:flex; flex-direction:column; gap: 0.2vh; }
+  .connector{ display:flex; flex-direction:column; align-items:center; }
+  .connector-svg{ width:70%; height: 2.2vh; display:block; overflow:visible; }
+  .connector.wide .connector-svg{ width:85%; }
+  .connector-svg path{ stroke: var(--gold); stroke-width: 2.2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ==================== Final Stage layout ==================== */
+/* Overrides/additions for the "final stage" focused mockup — reuses
+   style.css's color tokens, fonts, and header/footer rules. */
+
+.stage{ justify-content:flex-start; }
+
+/* ---- The Final: the hero of the page ---- */
+.final-hero{
+  flex-shrink:0; margin-top:1.4vh; padding:1.6vh 2.2vh;
+  border:2px solid var(--gold); border-radius:16px;
+  background: linear-gradient(160deg, rgba(242,183,5,0.18), rgba(242,183,5,0.02));
+  text-align:center;
+}
+.final-label{
+  display:flex; align-items:center; justify-content:center; gap:0.8vh;
+  font-family:'Barlow Condensed'; font-weight:800; text-transform:uppercase;
+  letter-spacing:0.12em; font-size:1.8vh; color:var(--gold); margin-bottom:1.1vh;
+}
+.final-label .icon-trophy{ width:2.4vh; height:2.4vh; fill:var(--gold); }
+.final-label .live-badge{
+  background:var(--gold); color:var(--ink); padding:0.2vh 1vh; border-radius:999px;
+  font-weight:900; letter-spacing:0.08em;
+}
+.final-teams{ display:flex; align-items:center; justify-content:center; gap:2vh; }
+.hero-row{
+  display:flex; flex-direction:column; align-items:center; gap:0.6vh;
+  min-width:20vh; padding:1vh 1.4vh; border-radius:10px;
+}
+.hero-row.winner{ background: rgba(242,183,5,0.14); }
+.hero-row .hero-code{
+  font-family:'Barlow Condensed'; font-weight:700; letter-spacing:0.08em;
+  font-size:1.6vh; color:var(--muted);
+}
+.hero-row.winner .hero-code{ color:var(--gold); }
+.hero-row .hero-name{
+  font-family:'Barlow Condensed'; font-weight:900; font-size:3.6vh; line-height:1.05; color:var(--white);
+}
+.hero-row.eliminated .hero-name{ color: rgba(182,166,212,0.55); font-weight:600; }
+.hero-row.winner .hero-name{ color:var(--gold); }
+.hero-row .hero-score{
+  font-family:'Barlow Condensed'; font-weight:900; font-size:5vh; color:var(--white);
+}
+.hero-row.eliminated .hero-score{ color: rgba(182,166,212,0.5); }
+.hero-row.winner .hero-score{ color:var(--gold); }
+.hero-score .pk{ font-size:0.5em; font-weight:700; color:var(--muted); margin-right:0.2em; }
+.final-vs{
+  font-family:'Barlow Condensed'; font-weight:800; font-size:2.4vh; color:var(--muted);
+  letter-spacing:0.1em;
+}
+.final-meta{
+  margin-top:1.1vh; font-family:'Barlow Condensed'; font-size:1.6vh; color:var(--muted); letter-spacing:0.03em;
+}
+.champion-banner{
+  margin-top:1vh; padding:0.7vh; border-radius:8px; background: rgba(242,183,5,0.2);
+  font-family:'Barlow Condensed'; font-weight:900; font-size:2.1vh; color:var(--gold);
+  letter-spacing:0.03em;
+}
+
+/* ---- 3rd place: same idea, secondary scale ---- */
+.third-hero{
+  flex-shrink:0; margin-top:1vh; padding:1vh 1.6vh;
+  border:1.5px solid var(--line); border-radius:12px; background: var(--card);
+  text-align:center;
+}
+.third-label{
+  font-family:'Barlow Condensed'; font-weight:800; text-transform:uppercase;
+  letter-spacing:0.1em; font-size:1.5vh; color:var(--muted); margin-bottom:1vh;
+}
+.third-label .live-badge{
+  background:var(--gold); color:var(--ink); padding:0.15vh 0.9vh; border-radius:999px; font-weight:900;
+}
+.third-teams{ display:flex; align-items:center; justify-content:center; gap:1.6vh; }
+.third-teams .hero-row{ min-width:14vh; padding:0.5vh 1vh; }
+.third-teams .hero-row .hero-name{ font-size:2.6vh; }
+.third-teams .hero-row .hero-score{ font-size:3.4vh; }
+.third-vs{ font-family:'Barlow Condensed'; font-weight:700; font-size:1.6vh; color:var(--muted); }
+.third-meta{
+  margin-top:1vh; font-family:'Barlow Condensed'; font-size:1.3vh; color:var(--muted);
+}
+
+/* ---- Golden Boot: given real room now instead of a cramped single line ---- */
+.boot-section{
+  flex:1; min-height:0; margin-top:1.2vh; padding:1.3vh 1.8vh;
+  border:1px solid var(--line); border-radius:12px; background: var(--card);
+  display:flex; flex-direction:column;
+}
+.boot-title{
+  display:flex; align-items:center; gap:0.8vh;
+  font-family:'Barlow Condensed'; font-weight:800; text-transform:uppercase;
+  letter-spacing:0.1em; font-size:2vh; color:var(--gold);
+  padding-bottom:1vh; border-bottom:2px solid var(--gold); margin-bottom:1.2vh; flex-shrink:0;
+}
+.boot-title .icon-boot{ width:2.2vh; height:2.2vh; }
+.boot-list{ display:flex; flex-direction:column; gap:0.8vh; justify-content:space-evenly; flex:1; }
+.boot-row{
+  display:flex; align-items:center; gap:1vh;
+  background: rgba(255,255,255,0.04); border:1px solid var(--line); border-radius:8px;
+  padding:0.7vh 1.4vh; font-family:'Barlow Condensed';
+}
+.boot-row.boot-1{ border-color:var(--gold); background: rgba(242,183,5,0.1); }
+.boot-row .boot-rank{ font-size:2vh; font-weight:900; color:var(--gold); width:1.4em; }
+.boot-row .boot-name{ font-size:2vh; font-weight:700; flex:1; }
+.boot-row .boot-team{ font-size:1.4vh; color:var(--muted); }
+.boot-row .boot-goals{ font-size:2.3vh; font-weight:900; color:var(--white); min-width:1.4em; text-align:right; }

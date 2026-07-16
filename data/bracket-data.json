@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T04:31:44.226Z",
+  "updated_at": "2026-07-16T04:39:44.889Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -330,31 +330,31 @@
   },
   "top_scorers": [
     {
-      "name": "Mbappé",
+      "name": "Kylian Mbappé",
       "team": "France",
       "teamCode": "FRA",
       "goals": 8
     },
     {
-      "name": "Messi",
+      "name": "Lionel Messi",
       "team": "Argentina",
       "teamCode": "ARG",
       "goals": 8
     },
     {
-      "name": "Haaland",
+      "name": "Erling Haaland",
       "team": "Norway",
       "teamCode": "NOR",
       "goals": 7
     },
     {
-      "name": "Kane",
+      "name": "Harry Kane",
       "team": "England",
       "teamCode": "ENG",
       "goals": 6
     },
     {
-      "name": "Bellingham",
+      "name": "Jude Bellingham",
       "team": "England",
       "teamCode": "ENG",
       "goals": 6

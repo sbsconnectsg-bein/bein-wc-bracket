@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T22:15:33.594Z",
+  "updated_at": "2026-07-18T22:31:47.655Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -320,7 +320,7 @@
     "home": {
       "name": "France",
       "code": "FRA",
-      "score": 0
+      "score": 2
     },
     "away": {
       "name": "England",
@@ -333,7 +333,7 @@
       "name": "Kylian Mbappé",
       "team": "France",
       "teamCode": "FRA",
-      "goals": 9
+      "goals": 10
     },
     {
       "name": "Lionel Messi",

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T21:31:52.973Z",
+  "updated_at": "2026-07-18T21:45:32.676Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -325,7 +325,7 @@
     "away": {
       "name": "England",
       "code": "ENG",
-      "score": 2
+      "score": 3
     }
   },
   "top_scorers": [

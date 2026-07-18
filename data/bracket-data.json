@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T23:00:44.043Z",
+  "updated_at": "2026-07-18T23:16:08.973Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -313,19 +313,19 @@
     "id": "537389",
     "matchNumber": 103,
     "kickoff": "2026-07-18T21:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "winner": "AWAY_TEAM",
     "duration": "REGULAR",
     "penalties": null,
     "home": {
       "name": "France",
       "code": "FRA",
-      "score": 3
+      "score": 4
     },
     "away": {
       "name": "England",
       "code": "ENG",
-      "score": 5
+      "score": 6
     }
   },
   "top_scorers": [
@@ -348,13 +348,13 @@
       "goals": 7
     },
     {
-      "name": "Harry Kane",
+      "name": "Jude Bellingham",
       "team": "England",
       "teamCode": "ENG",
-      "goals": 6
+      "goals": 7
     },
     {
-      "name": "Jude Bellingham",
+      "name": "Harry Kane",
       "team": "England",
       "teamCode": "ENG",
       "goals": 6

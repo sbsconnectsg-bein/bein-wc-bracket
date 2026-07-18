@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T21:45:32.676Z",
+  "updated_at": "2026-07-18T22:02:13.302Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -313,7 +313,7 @@
     "id": "537389",
     "matchNumber": 103,
     "kickoff": "2026-07-18T21:00:00Z",
-    "status": "IN_PLAY",
+    "status": "PAUSED",
     "winner": "AWAY_TEAM",
     "duration": "REGULAR",
     "penalties": null,
@@ -325,7 +325,7 @@
     "away": {
       "name": "England",
       "code": "ENG",
-      "score": 3
+      "score": 4
     }
   },
   "top_scorers": [

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-19T21:36:57.133Z",
+  "updated_at": "2026-07-19T21:45:27.205Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -294,9 +294,9 @@
     "id": "537390",
     "matchNumber": 104,
     "kickoff": "2026-07-19T19:00:00Z",
-    "status": "IN_PLAY",
+    "status": "PAUSED",
     "winner": "DRAW",
-    "duration": "REGULAR",
+    "duration": "EXTRA_TIME",
     "penalties": null,
     "home": {
       "name": "Spain",

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-19T22:00:38.193Z",
+  "updated_at": "2026-07-19T22:15:29.766Z",
   "tournament": "FIFA World Cup 2026",
   "quadrants": [
     {
@@ -294,7 +294,7 @@
     "id": "537390",
     "matchNumber": 104,
     "kickoff": "2026-07-19T19:00:00Z",
-    "status": "LIVE",
+    "status": "FINISHED",
     "winner": "HOME_TEAM",
     "duration": "REGULAR",
     "penalties": null,
